@@ -1,6 +1,6 @@
 require 'sinatra'
 require 'data_mapper'
-require 'models'
+require_relative 'models'
 
 get '/' do
   @depts = Department.all.select{|dept| dept.num_reviews != 0}
