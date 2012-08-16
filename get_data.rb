@@ -1,7 +1,7 @@
 require 'json'
 require 'net/http'
 require 'data_mapper'
-require 'models'
+require_relative 'models'
 
 def get_uri(path)
   uri_start = 'http://api.penncoursereview.com/v1'
