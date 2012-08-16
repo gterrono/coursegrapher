@@ -84,6 +84,7 @@ DEPENDENCIES
   dm-postgres-adapter
   dm-sqlite-adapter
   haml
+  json
   pg (= 0.10.0)
   sinatra (= 1.1.0)
   thin
