@@ -30,6 +30,7 @@ def process_dept(dept)
   puts department.name, department.save
   courses.each do |course|
     department.add process_course(course)
+    department = Department.get(department.id)
   end
 end
 

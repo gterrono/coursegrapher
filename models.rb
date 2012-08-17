@@ -51,11 +51,10 @@ class Department
 
   def add(course)
     return if course.nil?
-    num_courses = courses.length
+    num_courses = self.courses.length
     each_rating do |key|
       self[key] = (self[key]*num_courses + course[key])/(num_courses + 1)
     end
-    puts self[:name], self[:num_reviews]
     self[:num_reviews] += course[:num_reviews]
     course.department = self
     course.save
