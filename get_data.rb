@@ -26,7 +26,8 @@ end
 def process_dept(dept)
   data = get_json(dept['path'])
   courses = data['result']['coursehistories']
-  department = Department.create(:name => dept['id'])
+  department = Department.new(:name => dept['id'])
+  puts department.name, department.save
   courses.each do |course|
     department.add process_course(course)
   end
