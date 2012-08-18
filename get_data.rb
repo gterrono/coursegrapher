@@ -27,11 +27,11 @@ def process_dept(dept)
   data = get_json(dept['path'])
   courses = data['result']['coursehistories']
   department = Department.new(:name => dept['id'])
-  puts department.name, department.save
+  puts department.name + ' ' + department.save.to_s
   courses.each do |course|
     department.add process_course(course)
-    department = Department.get(department.id)
   end
+  department.save
 end
 
 $key_dict = {

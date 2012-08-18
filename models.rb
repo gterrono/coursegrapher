@@ -13,7 +13,7 @@ class Course
   property :difficulty, Float
   property :inst_quality, Float
   property :inst_communication, Float
-  property :num_reviews, Float
+  property :num_reviews, Integer, :default => 0
   property :rec_majors, Float
   property :rec_non_majors, Float
   property :stim_int, Float
@@ -56,9 +56,8 @@ class Department
       self[key] = (self[key]*num_courses + course[key])/(num_courses + 1)
     end
     self[:num_reviews] += course[:num_reviews]
-    course.department = self
+    self.courses.push course
     course.save
-    self.save
   end
 end
 
