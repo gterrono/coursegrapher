@@ -1,9 +1,0 @@
-%div{:class => "hidden", :id => "rows"}
-  -rows = @depts.select{|d| d.num_reviews != 0}.map do |dept|
-    -"[\"#{dept.name}\", #{dept.inst_quality}, #{dept.difficulty}, #{dept.course_quality}, #{dept.stim_int}, #{dept.access_inst}, #{dept.amount_learned}, #{dept.amount_work}, #{dept.inst_communication}, #{dept.rec_majors}, #{dept.rec_non_majors}, #{dept.num_reviews}]"
-  ="[#{rows.join(',')}]"
-
-%h1
-  Departments at Penn
-  %span{:class => "little"}
-    Clicking on a bubble will take you to the course page for that department
