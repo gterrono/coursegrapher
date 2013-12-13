@@ -7,7 +7,7 @@
   });
 
   window.drawChart = function() {
-    var data, dept_name, hash;
+    var data, dept_name, hash, sub_db;
     hash = window.location.hash;
     data = new google.visualization.DataTable();
     data.addColumn('string', 'Major');
@@ -24,7 +24,8 @@
     data.addColumn('number', 'Recommended for Non-Majors');
     data.addColumn('number', 'Number of Reviews');
     dept_name = hash.length > 1 ? hash.substr(1) : '';
-    return $.get("https://coursegrapher.firebaseio.com/" + dept_name + ".json", function(json) {
+    sub_db = dept_name || 'depts';
+    return $.get("https://coursegrapher.firebaseio.com/" + sub_db + ".json", function(json) {
       var a, k, options, row, v;
       console.log('got data');
       row = function(id, dept) {

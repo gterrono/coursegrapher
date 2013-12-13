@@ -14,13 +14,14 @@ dept_reviews = (did, callback, options) ->
   path = "depts/#{did}/reviews"
   get_json(path, callback, options)
 
-database = {}
-
 departments_received = 0
 revs_callback = (data, options) ->
   departments_received++
   dept_name = options.dept
-  dept = database[dept_name]
+  dept = {}
+  dept_totals = {}
+  dept_averages = {}
+  dept_averages = {}
   for obj in data.values
     courses =
       (c.split('-')[1] for c in obj.section.aliases when c.indexOf(dept_name) == 0)
@@ -35,35 +36,39 @@ revs_callback = (data, options) ->
         c.totals[category].sum += parseFloat(val)
         c.totals[category].num++
 
-  dept.num = 0
+  dept_num = 0
   for name, c of dept
     for category, val of c.totals
       c.averages[category] = val.sum / val.num
-      unless category of dept.totals
-        dept.totals[category] = {sum: 0, num: 0}
-      dept.totals[category].sum += c.averages[category]
-      dept.totals[category].num++
+      unless category of dept_totals
+        dept_totals[category] = {sum: 0, num: 0}
+      dept_totals[category].sum += c.averages[category]
+      dept_totals[category].num++
     delete c.totals
     delete c.reviews
-    dept.num++
-  dept.num -= 4
-  for category, val of dept.totals
-    dept.averages[category] = val.sum / val.num
-  delete dept.totals
-  db.update(_.pick(database, dept_name))
+    dept_num++
+  dept_num -= 4
+  for category, val of dept_totals
+    dept_averages[category] = val.sum / val.num
+
+  temp = {}
+  temp[dept_name] = averages: dept_averages, num: dept_num, name: dept_name
+  depts_db.update(temp)
+  temp = {}
+  temp[dept_name] = dept
+  root_db.update(temp)
   if departments_fetched == departments_received
     console.log "Done: #{departments_received} departments processed"
 
 departments_fetched = 0
 depts_callback = (data, options={}) ->
   for d in data.values
-    unless d.id of database
-      departments_fetched++
-      options.dept = d.id
-      database[d.id] = {totals: {}, averages: {}, name: d.name}
-      dept_reviews(d.id, revs_callback, _.clone(options))
+    departments_fetched++
+    options.dept = d.id
+    dept_reviews(d.id, revs_callback, _.clone(options))
 
 window.update_data = (token) ->
-  window.db = new Firebase('https://coursegrapher.firebaseio.com/')
+  window.root_db = new Firebase('https://coursegrapher.firebaseio.com/')
+  window.depts_db = new Firebase('https://coursegrapher.firebaseio.com/depts/')
   TOKEN = token
   departments(depts_callback)

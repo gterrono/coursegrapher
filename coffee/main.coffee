@@ -17,7 +17,8 @@ window.drawChart = () ->
   data.addColumn('number', 'Recommended for Non-Majors')
   data.addColumn('number', 'Number of Reviews')
   dept_name = if hash.length > 1 then hash.substr(1) else ''
-  $.get "https://coursegrapher.firebaseio.com/#{dept_name}.json", (json) ->
+  sub_db = dept_name or 'depts'
+  $.get "https://coursegrapher.firebaseio.com/#{sub_db}.json", (json) ->
     console.log 'got data'
     row = (id, dept) ->
       return null unless dept.averages?
