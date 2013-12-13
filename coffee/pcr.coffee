@@ -2,17 +2,17 @@ DOMAIN = 'http://api.penncoursereview.com/v1/'
 TOKEN = 'public'
 
 get_json = (path, callback, options) ->
-  $.get("#{DOMAIN}#{path}?token=#{TOKEN}", (data) =>
+  $.get "#{DOMAIN}#{path}?token=#{TOKEN}", (data) =>
     data = JSON.parse(data).result
-    callback(data, options))
+    callback(data, options)
 
 departments = (callback, options) ->
   path = 'depts/'
-  get_json(path, callback, options)
+  get_json path, callback, options
 
 dept_reviews = (did, callback, options) ->
   path = "depts/#{did}/reviews"
-  get_json(path, callback, options)
+  get_json path, callback, options
 
 database = {}
 
@@ -61,7 +61,7 @@ depts_callback = (data, options={}) ->
       departments_fetched++
       options.dept = d.id
       database[d.id] = {totals: {}, averages: {}, name: d.name}
-      dept_reviews(d.id, revs_callback, _.clone(options))
+      dept_reviews d.id, revs_callback, _.clone(options)
 
 window.update_data = (token) ->
   window.db = new Firebase('https://coursegrapher.firebaseio.com/')
