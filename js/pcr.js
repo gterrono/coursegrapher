@@ -105,7 +105,7 @@
     temp[dept_name] = {
       averages: dept_averages,
       num: dept_num,
-      name: dept_name
+      name: options.dept_full_name
     };
     depts_db.update(temp);
     temp = {};
@@ -129,6 +129,7 @@
       d = _ref[_i];
       departments_fetched++;
       options.dept = d.id;
+      options.dept_full_name = d.name;
       _results.push(dept_reviews(d.id, revs_callback, _.clone(options)));
     }
     return _results;

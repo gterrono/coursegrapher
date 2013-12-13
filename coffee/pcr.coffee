@@ -52,7 +52,7 @@ revs_callback = (data, options) ->
     dept_averages[category] = val.sum / val.num
 
   temp = {}
-  temp[dept_name] = averages: dept_averages, num: dept_num, name: dept_name
+  temp[dept_name] = averages: dept_averages, num: dept_num, name: options.dept_full_name
   depts_db.update(temp)
   temp = {}
   temp[dept_name] = dept
@@ -65,6 +65,7 @@ depts_callback = (data, options={}) ->
   for d in data.values
     departments_fetched++
     options.dept = d.id
+    options.dept_full_name = d.name
     dept_reviews(d.id, revs_callback, _.clone(options))
 
 window.update_data = (token) ->
