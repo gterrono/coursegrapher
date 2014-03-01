@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+  <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+    <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+      <!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+        <head>
+          <meta charset="utf-8">
+          <meta http-equiv="X-UA-Compatible" content="IE=edge">
+          <title>CourseGrapher</title>
+          <meta name="description" content="">
+          <meta name="viewport" content="width=device-width, initial-scale=1">
+
+          <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+
+          <link href="http://fonts.googleapis.com/css?family=Droid+Sans:400,700|Arvo:400,700,400italic" rel="stylesheet" type="text/css">
+          <link rel="stylesheet" href="css/normalize.css">
+          <link rel="stylesheet" href="css/main.css">
+          <link rel="stylesheet" href="css/old.css">
+          <link rel="stylesheet" href="css/old-style.css">
+          <link href="http://www.google.com/uds/api/visualization/1.0/3e90177897a662843613f410c963722a/ui+en.css" type="text/css" rel="stylesheet">
+          <!-- <link rel="stylesheet" href="http://videobox-lb.sourceforge.net/css/videobox.css" type="text/css" media="screen"> -->
+          <script src="js/vendor/modernizr-2.6.2.min.js"></script>
+          <script type="text/javascript" async="" src="http://www.google-analytics.com/ga.js"></script>
+          <script type="text/javascript">
+
+            var _gaq = _gaq || [];
+            _gaq.push(['_setAccount', 'UA-25827776-1']);
+            _gaq.push(['_trackPageview']);
+
+            (function() {
+             var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+             ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+             var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+             })();
+
+           </script>
+    </head>
+    <body>
+      <!--[if lt IE 7]>
+      <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+      <![endif]-->
+      <div class="bluethings header">
+        <a href="/"><img src="img/coursegrapher-logo.png" alt="ClassGrapher"></a>
+      </div>
+
+      <div class="content">
+        <div class="main">
+          <div class="graph_title">
+            <h1 id="graph-title" style="display:inline-block">Departments at Penn</h1>
+            <span id="extra-info" class="little">Clicking on a bubble will take you to the course page for that department</span>
+        </div>
+
+          <div id="chart_div" style="padding-top: 10px; width: 950px; height: 450px; position: relative;">
+            <!-- <embed type="application/x-shockwave-flash" src="http://www.gstatic.com/charts/motionchart/1/en/tlz-gviz.swf" width="950" height="450" style="undefined" id="google.visualization.MotionChart-0_swf" name="google.visualization.MotionChart-0_swf" bgcolor="#FFFFFF" quality="high" scale="default" allowscriptaccess="always" wmode="opaque" flashvars="state=%7B%22showTrails%22%3Atrue%2C%22playDuration%22%3A15000%2C%22iconType%22%3A%22BUBBLE%22%2C%22xLambda%22%3A1%2C%22yZoomedDataMin%22%3Anull%2C%22xZoomedDataMin%22%3Anull%2C%22yLambda%22%3A1%2C%22yZoomedIn%22%3Afalse%2C%22nonSelectedAlpha%22%3A0.4%2C%22orderedByY%22%3Afalse%2C%22uniColorForNonSelected%22%3Afalse%2C%22xZoomedIn%22%3Afalse%2C%22time%22%3A%22notime%22%2C%22yAxisOption%22%3A%223%22%2C%22xZoomedDataMax%22%3Anull%2C%22dimensions%22%3A%7B%22iconDimensions%22%3A%5B%22dim0%22%5D%7D%2C%22sizeOption%22%3A%2212%22%2C%22duration%22%3A%7B%22multiplier%22%3A1%2C%22timeUnit%22%3A%22D%22%7D%2C%22yZoomedDataMax%22%3Anull%2C%22xAxisOption%22%3A%222%22%2C%22iconKeySettings%22%3A%5B%5D%2C%22orderedByX%22%3Afalse%2C%22colorOption%22%3A%224%22%7D%3B&amp;chartId=google.visualization.MotionChart-0&amp;opt_.featureConfig_xScalePicker=false&amp;opt_.featureConfig_yScalePicker=false&amp;js=blocking"> --></div>
+
+        </div>
+        <div class="sidebar">
+
+
+
+          <!-- <h3 class="vote">How to use:</h3> -->
+          <!-- <a href="http://www.youtube.com/watch?v=1orvb9isiK4#t=00m25s&amp;start=25" rel="vidbox 800 600" title="A demo of CourseGrapher" style="padding:0px; margin-left:-10px;"> -->
+            <!-- <img style="background:url('http://src.sencha.io/260/195/http://img.youtube.com/vi/1orvb9isiK4/0.jpg');" width="260" height="195" src="http://vote.2011f.pennapps.com/play_overlay.png"> -->
+          <!-- </a> -->
+
+          <!-- <h3>Coming Soon:</h3> -->
+
+          <!-- <p>Please note that CourseGrapher is in no way affiliated with Penn Course Review, the UA, or representatives of either body. CourseGrapher is based on experimental data. </p> -->
+          <!-- <a class="video_colorbox cboxElement" href="http://www.youtube.com/embed/1orvb9isiK4?rel=0&wmode=transparent&autoplay=1"><img style="background:url('http://src.sencha.io/260/195/http://img.youtube.com/vi/1orvb9isiK4/0.jpg');" width="260" height="195" src="http://vote.2011f.pennapps.com/play_overlay.png" /></a>-->
+
+
+          <!--<div><form action="" method="post"><input type="submit" value="View Courses in Selected Department"></form></div>-->
+
+        </div>
+        <div class="fb">
+          <div id="fb-root" class=" fb_reset"><div style="position: absolute; top: -10000px; height: 0px; width: 0px;"><div></div></div><div style="position: absolute; top: -10000px; height: 0px; width: 0px;"><div><iframe name="fb_xdm_frame_http" frameborder="0" allowtransparency="true" scrolling="no" id="fb_xdm_frame_http" aria-hidden="true" title="Facebook Cross Domain Communication Frame" tab-index="-1" src="http://static.ak.facebook.com/connect/xd_arbiter.php?version=28#channel=f3f6a2e0b8&amp;channel_path=%2F%3Ffb_xd_fragment%23xd_sig%3Df1a4070828%26&amp;origin=http%3A%2F%2Fcoursegrapher.appspot.com" style="border: none;"></iframe><iframe name="fb_xdm_frame_https" frameborder="0" allowtransparency="true" scrolling="no" id="fb_xdm_frame_https" aria-hidden="true" title="Facebook Cross Domain Communication Frame" tab-index="-1" src="https://s-static.ak.facebook.com/connect/xd_arbiter.php?version=28#channel=f3f6a2e0b8&amp;channel_path=%2F%3Ffb_xd_fragment%23xd_sig%3Df1a4070828%26&amp;origin=http%3A%2F%2Fcoursegrapher.appspot.com" style="border: none;"></iframe></div></div></div>
+          <script>(function(d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) {return;}
+            js = d.createElement(s); js.id = id;
+            js.src = "http://connect.facebook.net/en_US/all.js#appId=237636302953138&xfbml=1";
+            fjs.parentNode.insertBefore(js, fjs);
+            }(document, 'script', 'facebook-jssdk'));</script>
+
+          <div class="fb-like fb_edge_widget_with_comment fb_iframe_widget" data-href="http://coursegrapher.appspot.com" data-send="true" data-width="800" data-show-faces="false" fb-xfbml-state="rendered"><span style="height: 20px; width: 800px;"><iframe id="f16e2464b" name="f2a6f6cc78" scrolling="no" title="Like this content on Facebook." class="fb_ltr" src="http://www.facebook.com/plugins/like.php?api_key=237636302953138&amp;channel_url=http%3A%2F%2Fstatic.ak.facebook.com%2Fconnect%2Fxd_arbiter.php%3Fversion%3D28%23cb%3Df31cf13b7%26domain%3Dcoursegrapher.appspot.com%26origin%3Dhttp%253A%252F%252Fcoursegrapher.appspot.com%252Ff3f6a2e0b8%26relation%3Dparent.parent&amp;colorscheme=light&amp;extended_social_context=false&amp;href=http%3A%2F%2Fcoursegrapher.appspot.com&amp;layout=standard&amp;locale=en_US&amp;node_type=link&amp;sdk=joey&amp;send=true&amp;show_faces=false&amp;width=800" style="border: none; overflow: hidden; height: 20px; width: 800px;"></iframe></span></div>
+        </div>
+
+      </div>
+      <div class="bottom">
+        <div class="sidebar">
+
+          <p>This graph shows every department at Penn with at least 20 entries.</p>
+          <p>For each department, all entries since 2002 were averaged to find that department's score for a number of attributes. </p>
+          <p>Please note that CourseGrapher is in no way affiliated with Penn Course Review, the UA, or representatives of either body. CourseGrapher is based on experimental data. </p>
+
+
+        </div>
+
+        <div id="fb-root"></div>
+        <script>(function(d, s, id) {
+          var js, fjs = d.getElementsByTagName(s)[0];
+          if (d.getElementById(id)) {return;}
+          js = d.createElement(s); js.id = id;
+          js.src = "http://connect.facebook.net/en_US/all.js#xfbml=1";
+          fjs.parentNode.insertBefore(js, fjs);
+          }(document, 'script', 'facebook-jssdk'));</script>
+        <meta property="fb:admins" content="mouseplatterman">
+        <div class="fb-comments fb_iframe_widget" data-href="http://coursegrapher.appspot.com" data-num-posts="10" data-width="675" fb-xfbml-state="rendered"><span style="height: 571px; width: 675px;"><iframe id="f3c56c1a48" name="f179c04f64" scrolling="no" title="Facebook Social Plugin" class="fb_ltr" src="https://www.facebook.com/plugins/comments.php?api_key=237636302953138&amp;channel_url=http%3A%2F%2Fstatic.ak.facebook.com%2Fconnect%2Fxd_arbiter.php%3Fversion%3D28%23cb%3Df1d033d1a4%26domain%3Dcoursegrapher.appspot.com%26origin%3Dhttp%253A%252F%252Fcoursegrapher.appspot.com%252Ff3f6a2e0b8%26relation%3Dparent.parent&amp;href=http%3A%2F%2Fcoursegrapher.appspot.com&amp;locale=en_US&amp;numposts=10&amp;sdk=joey&amp;width=675" style="border: none; overflow: hidden; height: 571px; width: 675px;"></iframe></span></div>
+      </div>
+
+
+
+      <div class="footer">
+
+        <p>
+          Designed and Developed by Greg Terrono and Alex Rattray. |
+          <a href="http://2011f.pennapps.com">PennApps Hackathon Fall 2011</a>. University of Pennsylvania
+        </p>
+
+      </div>
+
+      <!-- Penn colors:
+
+      Dark Blue: 011F5B
+      Gold: FFCC00
+      Gray: 666666
+      Light Blue: A0B7E0
+      Light Grey: CCCCCC
+      Medium Blue: 315496
+      Red: 990000
+
+      -->
+        <div id="lbOverlay" style="visibility: hidden; zoom: 1; opacity: 0;"></div>
+        <div id="lbCenter" style="width: 250px; height: 250px; margin-left: -125px; display: none;"></div>
+        <div id="lbBottomContainer" style="display: none;">
+          <div id="lbBottom">
+            <a id="lbCloseLink" href="#"></a>
+            <div id="lbCaption"></div>
+            <div id="lbNumber"></div>
+            <div style="clear: both;"></div>
+          </div>
+        </div>
+
+        <script id="facebook-jssdk" src="http://connect.facebook.net/en_US/all.js#appId=237636302953138&amp;xfbml=1"></script>
+        <!--<script type="text/javascript" src="http://videobox-lb.sourceforge.net/js/mootools.js"></script>
+        <script type="text/javascript" src="http://videobox-lb.sourceforge.net/js/swfobject.js"></script>
+        <script type="text/javascript" src="http://videobox-lb.sourceforge.net/js/videobox.js"></script>-->
+
+        <script type="text/javascript" src="http://www.google.com/jsapi"></script>
+
+        <script src="http://www.google.com/uds/?file=visualization&amp;v=1&amp;packages=motionchart" type="text/javascript"></script>
+        <!--<script src="http://www.google.com/uds/api/visualization/1.0/3e90177897a662843613f410c963722a/format+en,default+en,ui+en,motionchart+en.I.js" type="text/javascript"></script>-->
+
+        <script type='text/javascript' src='https://cdn.firebase.com/v0/firebase.js'></script>
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+        <script src="js/underscore-min.js"></script>
+        <script src="js/require.js"></script>
+        <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.10.2.min.js"><\/script>')</script>
+        <script src="js/plugins.js"></script>
+        <script src="js/pcr.js"></script>
+        <script src="js/main.js"></script>
+      </body>
+    </html>

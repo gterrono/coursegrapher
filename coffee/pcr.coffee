@@ -2,17 +2,17 @@ DOMAIN = 'http://api.penncoursereview.com/v1/'
 TOKEN = 'public'
 
 get_json = (path, callback, options) ->
-  $.get("#{DOMAIN}#{path}?token=#{TOKEN}", (data) =>
+  $.get "#{DOMAIN}#{path}?token=#{TOKEN}", (data) =>
     data = JSON.parse(data).result
-    callback(data, options))
+    callback(data, options)
 
 departments = (callback, options) ->
   path = 'depts/'
-  get_json(path, callback, options)
+  get_json path, callback, options
 
 dept_reviews = (did, callback, options) ->
   path = "depts/#{did}/reviews"
-  get_json(path, callback, options)
+  get_json path, callback, options
 
 departments_received = 0
 revs_callback = (data, options) ->
