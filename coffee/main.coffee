@@ -1,4 +1,4 @@
-google.load('visualization', '1', {'packages':['motionchart']})
+google.load('visualization', '1', {'packages':['corechart']})
 
 # alex's logging function that he likes to use.
 l = (message, objs...) ->
@@ -49,7 +49,7 @@ window.drawChart = () ->
         name
         new Date(2014, 0, 1)
         get('rInstructorQuality')
-        get('rDifficulty')# or null  # filters out the zeroes, I think
+        get('rDifficulty') or null  # filters out the zeroes, I think
         get('rCourseQuality')
         get('rStimulateInterest')
         get('rInstructorAccess')
@@ -69,34 +69,11 @@ window.drawChart = () ->
     chart_div = document.getElementById('chart_div')
     window.chart = new google.visualization.MotionChart(chart_div)
     options =
-      showYScalePicker: false
-      showXScalePicker: false
+      showYScalePicker: true
+      showXScalePicker: true
       width: 950
       height: 450
-      state:
-        "showTrails":true
-        "playDuration":15000
-        "iconType":"BUBBLE"
-        "xLambda":1
-        "yZoomedDataMin":null
-        "xZoomedDataMin":null
-        "yLambda":1
-        "yZoomedIn":false
-        "nonSelectedAlpha":0.4
-        "orderedByY":false
-        "uniColorForNonSelected":false
-        "xZoomedIn":false,
-        "time":"notime",
-        "yAxisOption":"3",
-        "xZoomedDataMax":4,
-        "dimensions":{"iconDimensions":["dim0"]},
-        "sizeOption": if dept_name then "_UNISIZE" else 12
-        "duration":{"multiplier":1,"timeUnit":"D"},
-        "yZoomedDataMax":null
-        "xAxisOption":"2"
-        "iconKeySettings":[]
-        "orderedByX":false
-        "colorOption":"4"
+      state: '{"showTrails":true,"playDuration":15000,"iconType":"BUBBLE","xLambda":1,"yZoomedDataMin":null,"xZoomedDataMin":null,"yLambda":1,"yZoomedIn":false,"nonSelectedAlpha":0.4,"orderedByY":false,"uniColorForNonSelected":false,"xZoomedIn":false,"time":"notime","yAxisOption":"3","xZoomedDataMax":null,"dimensions":{"iconDimensions":["dim0"]},"sizeOption":' + (if dept_name then '"_UNISIZE"' else '"12"') + ',"duration":{"multiplier":1,"timeUnit":"D"},"yZoomedDataMax":null,"xAxisOption":"2","iconKeySettings":[],"orderedByX":false,"colorOption":"4"};'
 
     chart.draw(data, options)
 

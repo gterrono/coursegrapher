@@ -4,7 +4,7 @@
     __slice = [].slice;
 
   google.load('visualization', '1', {
-    'packages': ['motionchart']
+    'packages': ['corechart']
   });
 
   l = function() {
@@ -49,7 +49,7 @@
           return parseFloat(n.toFixed(2));
         };
         name = dept.name != null ? "" + dept.name + " (" + id + ")" : "" + dept_name + " " + id;
-        return [name, new Date(2014, 0, 1), get('rInstructorQuality'), get('rDifficulty'), get('rCourseQuality'), get('rStimulateInterest'), get('rInstructorAccess'), get('rAmountLearned'), get('rWorkRequired'), get('rCommAbility'), get('rRecommendMajor'), get('rRecommendNonMajor'), dept.num || 1];
+        return [name, new Date(2014, 0, 1), get('rInstructorQuality'), get('rDifficulty') || null, get('rCourseQuality'), get('rStimulateInterest'), get('rInstructorAccess'), get('rAmountLearned'), get('rWorkRequired'), get('rCommAbility'), get('rRecommendMajor'), get('rRecommendNonMajor'), dept.num || 1];
       };
       a = (function() {
         var _results;
@@ -64,40 +64,11 @@
       chart_div = document.getElementById('chart_div');
       window.chart = new google.visualization.MotionChart(chart_div);
       options = {
-        showYScalePicker: false,
-        showXScalePicker: false,
+        showYScalePicker: true,
+        showXScalePicker: true,
         width: 950,
         height: 450,
-        state: {
-          "showTrails": true,
-          "playDuration": 15000,
-          "iconType": "BUBBLE",
-          "xLambda": 1,
-          "yZoomedDataMin": null,
-          "xZoomedDataMin": null,
-          "yLambda": 1,
-          "yZoomedIn": false,
-          "nonSelectedAlpha": 0.4,
-          "orderedByY": false,
-          "uniColorForNonSelected": false,
-          "xZoomedIn": false,
-          "time": "notime",
-          "yAxisOption": "3",
-          "xZoomedDataMax": 4,
-          "dimensions": {
-            "iconDimensions": ["dim0"]
-          },
-          "sizeOption": dept_name ? "_UNISIZE" : 12,
-          "duration": {
-            "multiplier": 1,
-            "timeUnit": "D"
-          },
-          "yZoomedDataMax": null,
-          "xAxisOption": "2",
-          "iconKeySettings": [],
-          "orderedByX": false,
-          "colorOption": "4"
-        }
+        state: '{"showTrails":true,"playDuration":15000,"iconType":"BUBBLE","xLambda":1,"yZoomedDataMin":null,"xZoomedDataMin":null,"yLambda":1,"yZoomedIn":false,"nonSelectedAlpha":0.4,"orderedByY":false,"uniColorForNonSelected":false,"xZoomedIn":false,"time":"notime","yAxisOption":"3","xZoomedDataMax":null,"dimensions":{"iconDimensions":["dim0"]},"sizeOption":' + (dept_name ? '"_UNISIZE"' : '"12"') + ',"duration":{"multiplier":1,"timeUnit":"D"},"yZoomedDataMax":null,"xAxisOption":"2","iconKeySettings":[],"orderedByX":false,"colorOption":"4"};'
       };
       chart.draw(data, options);
       if (!window.location.hash) {
