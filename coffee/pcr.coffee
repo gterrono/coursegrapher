@@ -30,6 +30,7 @@ revs_callback = (data, options) ->
         dept[course] = {reviews: [], totals: {}, averages: {}}
       c = dept[course]
       c.reviews.push(obj.ratings)
+      c.name = obj.section.name
       for category, val of obj.ratings
         unless category of c.totals
           c.totals[category] = {sum: 0, num: 0}
