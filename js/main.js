@@ -49,7 +49,7 @@
           n = dept.averages[field] || 0;
           return parseFloat(n.toFixed(2));
         };
-        name = dept.name != null ? "" + dept.name + " (" + id + ")" : "" + dept_name + " " + id;
+        name = dept.num != null ? "" + dept.name + " (" + id + ")" : "[" + dept_name + " " + id + "] " + dept.name;
         if (dept.num < 20) {
           l('skipping dept because to small', name, dept.num);
           return null;

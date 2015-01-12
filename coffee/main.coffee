@@ -43,7 +43,7 @@ window.drawChart = () ->
         n = dept.averages[field] or 0
         parseFloat n.toFixed(2)
 
-      name = if dept.name? then "#{dept.name} (#{id})" else "#{dept_name} #{id}"
+      name = if dept.num? then "#{dept.name} (#{id})" else "[#{dept_name} #{id}] #{dept.name}"
 
       if dept.num < 20
         l 'skipping dept because to small', name, dept.num
