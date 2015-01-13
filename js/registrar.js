@@ -10,22 +10,24 @@
 
   root_db = new Firebase('https://coursegrapher.firebaseio.com/');
 
-  root_db.once("value", function(db) {
-    var dept_db, dept_name, _ref, _results;
-    _ref = db.val();
+  root_db.once("value", function(data) {
+    var db, dept_db, dept_name, depts_db, _results;
+    db = data.val();
+    depts_db = db["depts"];
     _results = [];
-    for (dept_name in _ref) {
-      dept_db = _ref[dept_name];
-      _results.push(update_dept(dept_name, dept_db));
+    for (dept_name in db) {
+      dept_db = db[dept_name];
+      if (dept_name !== "depts") {
+        _results.push(update_dept(dept_name, dept_db, depts_db));
+      } else {
+        _results.push(void 0);
+      }
     }
     return _results;
   });
 
-  update_dept = function(dept_name, dept_db) {
+  update_dept = function(dept_name, dept_db, depts_db) {
     var c, k;
-    if (dept_name === "depts") {
-      return;
-    }
     for (k in dept_db) {
       c = dept_db[k];
       c.offered = false;
@@ -33,17 +35,27 @@
     return registrar.search({
       course_id: dept_name
     }, function(courses) {
-      var temp, _i, _len;
+      var course_count, discovered, temp, _i, _len;
+      discovered = {};
+      course_count = 0;
       for (_i = 0, _len = courses.length; _i < _len; _i++) {
         c = courses[_i];
         if (dept_db[c.course_number] && c.course_status === "O") {
           dept_db[c.course_number].offered = true;
         }
+        if (!(c.course_number in discovered)) {
+          discovered[c.course_number] = true;
+          course_count++;
+        }
       }
       temp = {};
       temp[dept_name] = dept_db;
       root_db.update(temp);
-      return console.log("successfully updated department: " + dept_name);
+      console.log("successfully updated department: " + dept_name);
+      temp = {};
+      temp[dept_name] = depts_db[dept_name];
+      temp[dept_name].course_count = course_count;
+      return root_db.child("depts").update(temp);
     });
   };
 

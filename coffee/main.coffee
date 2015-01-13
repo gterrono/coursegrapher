@@ -30,7 +30,7 @@ window.drawChart = (only_offered) ->
   data.addColumn('number', 'Recommended for Majors')
   data.addColumn('number', 'Recommended for Non-Majors')
   if root_view
-    data.addColumn('number', '# of Courses Ever Offered')
+    data.addColumn('number', '# of Courses Offered This Semester')
   else
     data.addColumn('string', 'Offerred this Semester')
 
@@ -68,7 +68,7 @@ window.drawChart = (only_offered) ->
         get('rCommAbility')
         get('rRecommendMajor')
         get('rRecommendNonMajor')
-        dept.num or dept.offered.toString()
+        if root_view then dept.course_count else dept.offered.toString()
       ]
 
     # turn firebase into arrays using above func

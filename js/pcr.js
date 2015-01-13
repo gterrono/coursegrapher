@@ -31,6 +31,9 @@
 
   revs_callback = function(data, options) {
     var c, category, course, courses, dept, dept_averages, dept_name, dept_num, dept_totals, name, obj, temp, val, _i, _j, _len, _len1, _ref, _ref1, _ref2;
+    if (options.dept === "PSSA") {
+      return;
+    }
     departments_received++;
     dept_name = options.dept;
     dept = {};

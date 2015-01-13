@@ -36,7 +36,7 @@
     data.addColumn('number', 'Recommended for Majors');
     data.addColumn('number', 'Recommended for Non-Majors');
     if (root_view) {
-      data.addColumn('number', '# of Courses Ever Offered');
+      data.addColumn('number', '# of Courses Offered This Semester');
     } else {
       data.addColumn('string', 'Offerred this Semester');
     }
@@ -62,7 +62,7 @@
           l('skipping dept because to small', name, dept.num);
           return null;
         }
-        return [name, new Date(), get('rInstructorQuality'), get('rDifficulty') || null, get('rCourseQuality'), get('rStimulateInterest'), get('rInstructorAccess'), get('rAmountLearned'), get('rWorkRequired'), get('rCommAbility'), get('rRecommendMajor'), get('rRecommendNonMajor'), dept.num || dept.offered.toString()];
+        return [name, new Date(), get('rInstructorQuality'), get('rDifficulty') || null, get('rCourseQuality'), get('rStimulateInterest'), get('rInstructorAccess'), get('rAmountLearned'), get('rWorkRequired'), get('rCommAbility'), get('rRecommendMajor'), get('rRecommendNonMajor'), root_view ? dept.course_count : dept.offered.toString()];
       };
       a = (function() {
         var _results;

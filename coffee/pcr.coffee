@@ -16,6 +16,8 @@ dept_reviews = (did, callback, options) ->
 
 departments_received = 0
 revs_callback = (data, options) ->
+  if options.dept == "PSSA" # this is some bullshit major
+    return
   departments_received++
   dept_name = options.dept
   dept = {}
