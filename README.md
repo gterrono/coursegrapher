@@ -11,4 +11,4 @@ To compile the coffeescript, use `coffee -o js -c coffee`.
 
 To deploy, push to gh-pages.
 
-To update the review data, set write to true on Firebase and run `update_data(<token>)` in the console on [the site](http://coursegrapher.com). It will log when it's done. Then set write back to false.
+To update the review data, set write to true on Firebase and run `update_data(<token>)` in the console on [the site](http://coursegrapher.com). It should take about 15 minutes, and it will log when it's done. Then set write back to false.
