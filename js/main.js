@@ -113,7 +113,7 @@
       $('#graph-title').text("Courses in " + dept_name);
       $extra = $('#extra-info');
       $extra.text('Click and drag over an area to zoom in (hit enter after clicking zoom)');
-      $extra.after('<div id="only-offered-checkbox" style="float:right;padding-top:20px;padding-right:20px;font-size:20px"><input type="checkbox"> Display offered courses only</div>');
+      $extra.after('<div id="only-offered-checkbox" style="float:right;padding-top:20px;padding-right:20px;font-size:17px"><input type="checkbox" name="only-offered" id="only-offered"><label for="only-offered" style="padding-left:5px">Display offered courses only</label></div>');
       return $extra.after('<span id="back" style="float:right;padding-top:20px" class="little"><a href="#">back to depts</a></span>');
     } else {
       $('#graph-title').text('Departments at Penn');
