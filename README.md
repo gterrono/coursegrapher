@@ -5,7 +5,7 @@ Thie is a site that graphs [PennCourseReview] (http://penncoursereview.com) data
 
 Notes
 ----
-The graph can't be shown by just viewing the file in the browser. You can test it locally by running `python -m SimpleHTTPServer` in the directory.
+When developing, the graph can't be shown by just viewing the file in the browser. You can test it locally by running `python -m SimpleHTTPServer` in the directory.
 
 To compile the coffeescript, use `coffee -o js -c coffee`.
 
