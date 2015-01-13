@@ -57,7 +57,7 @@ window.drawChart = (only_offered) ->
 
       return [
         name
-        new Date(2014, 0, 1)
+        new Date()
         get('rInstructorQuality')
         get('rDifficulty') or null  # filters out the zeroes, I think
         get('rCourseQuality')
@@ -84,10 +84,9 @@ window.drawChart = (only_offered) ->
       showYScalePicker: false
       showXScalePicker: false
       showChartButtons: false
-      showAdvancedPanel: false
       width: width
       height: height
-      state: '{"showTrails":true,"playDuration":15000,"iconType":"BUBBLE","xLambda":1,"yZoomedDataMin":null,"xZoomedDataMin":null,"yLambda":1,"yZoomedIn":false,"nonSelectedAlpha":0.4,"orderedByY":false,"uniColorForNonSelected":false,"xZoomedIn":false,"time":"notime","yAxisOption":"3","xZoomedDataMax":null,"dimensions":{"iconDimensions":["dim0"]},"sizeOption":' + (if dept_name then '"_UNISIZE"' else '"12"') + ',"duration":{"multiplier":1,"timeUnit":"D"},"yZoomedDataMax":null,"xAxisOption":"4","iconKeySettings":[],"orderedByX":false,"colorOption":"2"};'
+      state: '{"showTrails":false,"playDuration":15000,"iconType":"BUBBLE","xLambda":1,"yZoomedDataMin":null,"xZoomedDataMin":null,"yLambda":1,"yZoomedIn":false,"nonSelectedAlpha":0.4,"orderedByY":false,"uniColorForNonSelected":false,"xZoomedIn":false,"time":"notime","yAxisOption":"3","xZoomedDataMax":null,"dimensions":{"iconDimensions":["dim0"]},"sizeOption":' + (if dept_name then '"_UNISIZE"' else '"12"') + ',"duration":{"multiplier":1,"timeUnit":"D"},"yZoomedDataMax":null,"xAxisOption":"4","iconKeySettings":[],"orderedByX":false,"colorOption":"2"};'
 
     chart.draw(data, options)
 
@@ -131,6 +130,6 @@ window.onhashchange = () ->
 google.setOnLoadCallback(drawChart())
 
 $ ->
-  $("#only-offered-checkbox :checkbox").change ->
+  $(document).on 'change', "#only-offered-checkbox :checkbox", ->
     drawChart(this.checked)
 

@@ -62,7 +62,7 @@
           l('skipping dept because to small', name, dept.num);
           return null;
         }
-        return [name, new Date(2014, 0, 1), get('rInstructorQuality'), get('rDifficulty') || null, get('rCourseQuality'), get('rStimulateInterest'), get('rInstructorAccess'), get('rAmountLearned'), get('rWorkRequired'), get('rCommAbility'), get('rRecommendMajor'), get('rRecommendNonMajor'), dept.num || dept.offered.toString()];
+        return [name, new Date(), get('rInstructorQuality'), get('rDifficulty') || null, get('rCourseQuality'), get('rStimulateInterest'), get('rInstructorAccess'), get('rAmountLearned'), get('rWorkRequired'), get('rCommAbility'), get('rRecommendMajor'), get('rRecommendNonMajor'), dept.num || dept.offered.toString()];
       };
       a = (function() {
         var _results;
@@ -82,10 +82,9 @@
         showYScalePicker: false,
         showXScalePicker: false,
         showChartButtons: false,
-        showAdvancedPanel: false,
         width: width,
         height: height,
-        state: '{"showTrails":true,"playDuration":15000,"iconType":"BUBBLE","xLambda":1,"yZoomedDataMin":null,"xZoomedDataMin":null,"yLambda":1,"yZoomedIn":false,"nonSelectedAlpha":0.4,"orderedByY":false,"uniColorForNonSelected":false,"xZoomedIn":false,"time":"notime","yAxisOption":"3","xZoomedDataMax":null,"dimensions":{"iconDimensions":["dim0"]},"sizeOption":' + (dept_name ? '"_UNISIZE"' : '"12"') + ',"duration":{"multiplier":1,"timeUnit":"D"},"yZoomedDataMax":null,"xAxisOption":"4","iconKeySettings":[],"orderedByX":false,"colorOption":"2"};'
+        state: '{"showTrails":false,"playDuration":15000,"iconType":"BUBBLE","xLambda":1,"yZoomedDataMin":null,"xZoomedDataMin":null,"yLambda":1,"yZoomedIn":false,"nonSelectedAlpha":0.4,"orderedByY":false,"uniColorForNonSelected":false,"xZoomedIn":false,"time":"notime","yAxisOption":"3","xZoomedDataMax":null,"dimensions":{"iconDimensions":["dim0"]},"sizeOption":' + (dept_name ? '"_UNISIZE"' : '"12"') + ',"duration":{"multiplier":1,"timeUnit":"D"},"yZoomedDataMax":null,"xAxisOption":"4","iconKeySettings":[],"orderedByX":false,"colorOption":"2"};'
       };
       chart.draw(data, options);
       if (!window.location.hash) {
@@ -134,7 +133,7 @@
   google.setOnLoadCallback(drawChart());
 
   $(function() {
-    return $("#only-offered-checkbox :checkbox").change(function() {
+    return $(document).on('change', "#only-offered-checkbox :checkbox", function() {
       return drawChart(this.checked);
     });
   });
